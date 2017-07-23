@@ -15,13 +15,13 @@ public class TestStartServer {
 	@Ignore
 	@Test
 	public void testServerStart(){
-		StartServer.start();
+		StartServer.start("localhost", 50680);
 		System.out.println("Server Started Successfully...");
 	}
 	
 	@Test
 	public void testConnectionToServer(){
-		StartServer.start();
+		StartServer.start("localhost", 50680);
         try {
         	InetSocketAddress hostAddress = new InetSocketAddress("localhost", 50680);
 			SocketChannel client = SocketChannel.open(hostAddress);

@@ -25,12 +25,16 @@ public class StartServer {
         dataMapper = new HashMap<SocketChannel,List<?>>();
 	}
 	
+	public static void main(String[] args){
+		start("localhost", 50680);
+		System.out.println("Server Started...");
+	}
 	
-	public static void start(){
+	public static void start(final String hostName, final int portNumber){
 		Runnable startServerThread = new Runnable(){
 			public void run() {
 				try {
-					new StartServer("localhost", 50680).startServer();
+					new StartServer(hostName, portNumber).startServer();
 				} catch (IOException ioException) {
 					ioException.printStackTrace();
 				}
