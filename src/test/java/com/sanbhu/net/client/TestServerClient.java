@@ -7,12 +7,15 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.sanbhu.net.server.Server;
+
 public class TestServerClient {
 
 	private static ServerClient serverClient;
 	
 	@BeforeClass
 	public static void initClient(){
+		Server.start("localhost", 50680);
 		serverClient = new ServerClient("localhost", 50680);
 	}
 	

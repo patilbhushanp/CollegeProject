@@ -15,12 +15,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class StartServer {
+public class Server {
     private Map<SocketChannel,List<?>> dataMapper;
     private InetSocketAddress listenAddress;
 	private Selector selector;
 	
-	public StartServer(String hostName, int portNumber){
+	public Server(String hostName, int portNumber){
 		listenAddress = new InetSocketAddress(hostName, portNumber);
         dataMapper = new HashMap<SocketChannel,List<?>>();
 	}
@@ -34,7 +34,7 @@ public class StartServer {
 		Runnable startServerThread = new Runnable(){
 			public void run() {
 				try {
-					new StartServer(hostName, portNumber).startServer();
+					new Server(hostName, portNumber).startServer();
 				} catch (IOException ioException) {
 					ioException.printStackTrace();
 				}
